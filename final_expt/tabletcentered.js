@@ -294,65 +294,7 @@ var experiment = {
 	},
 
 	//sets up and allows participants to play "the dot game"
-	training: function(dotgame) {
-		var allDots = ["dot_1", "dot_2", "dot_3", "dot_4", "dot_5", 
-						"dot_smiley1", "dot_smiley2", "dot_smiley3", 
-						"dot_smiley4", "dot_smiley5"];
-		var xcounter = 0;
-		var dotCount = 5;
-
-		//preload sound
-		if (dotgame === 0) {
-			audioSprite.play();
-			audioSprite.pause();
-		}
-
-		var dotx = [];
-		var doty = [];
-
-		if (dotgame === 0) {
-			for (i = 0; i < dotCount; i++) {
-				createDot(dotx, doty, i, "");
-			}
-		} else {
-			for (i = 0; i < dotCount; i++) {
-				createDot(dotx, doty, i, "smiley");
-			}
-		}
-		showSlide("training");
-		$('.dot').bind('click touchstart', function(event) {
-	    	var dotID = $(event.currentTarget).attr('id');
-
-	    	//only count towards completion clicks on dots that have not yet been clicked
-	    	if (allDots.indexOf(dotID) === -1) {
-	    		return;
-	    	}
-	    	allDots.splice(allDots.indexOf(dotID), 1);
-	    	document.getElementById(dotID).src = "dots/x.jpg";
-	    	xcounter++
-	    	if (xcounter === dotCount) {
-	    		setTimeout(function () {
-	    			$("#training").hide();
-	    			if (dotgame === 0) {		
-	    				//hide old x marks before game begins again
-	    				var dotID;
-	    				for (i = 1; i <= dotCount; i++) {
-	    					dotID = "dot_" + i;
-	    					training.removeChild(document.getElementById(dotID));
-	    				}
-						experiment.training();
-						dotgame++; 
-					} else {
-						//document.body.style.background = "black";
-						setTimeout(function() {
-							showSlide("prestudy");
-							//experiment.next();
-						}, normalpause*2);
-					}
-				}, normalpause*2);
-			}
-	    });	   
-	},
+	
 
 
 	//Checks to see whether the experimenter inputted appropriate values before moving on with the experiment
