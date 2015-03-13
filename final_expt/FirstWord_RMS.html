@@ -1,0 +1,344 @@
+<!--First Word Survey
+By Rose-->
+
+<html>
+<head>
+	<title>First Word Survey</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script src="mmturkey.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.6.2.js"></script> <!--this is for the increment clicks for numDone-->
+	<meta name="viewport" content="initial-scale=1.0" />
+	<link rel="stylesheet" href="format.css" />
+</head>
+
+<!--this is the first slide--> 
+
+<body> 
+
+<div class="slide" id="instructions">
+        
+        <h2 ID="firstWordSurvey1" class="textDiv">First Word Survey</h2>
+        <h1 id='logo'>Stanford Language and Cognition Lab</h1>
+        <img src="wave.png" id="wavepic" height="400" width="400">
+        <h2 ID="blurb" class="textDiv">A short survey about children's first words (excluding "Mama" and "Dada" or their equivalents).</p>Please answer for one child at a time!</h2>
+		<br />
+		<p class="textDiv" id="whatword"><b>We consider a "word" to be a consistent use 
+		of a particular set of sounds to indicate a consistent meaning. So, for example, 
+		if your baby babbled like "babababa" when she was excited, that would would not be a word. 
+		But if she used "moomoo" consistently to mean "cow," that would be a good word.</p></b>
+		<p ID="accept" class="textDiv">Note: You must accept the HIT to begin the survey</p>
+        
+       	<p class="block-text" id="legal">By answering the
+    	following questions, you are participating in a study being performed by
+    	cognitive scientists in the Stanford Department of Psychology. If you have
+    	questions about this research, please contact us at <a
+    	href="mailto://languagecoglab@gmail.com.">languagecoglab@gmail.com</a>.
+    	You must be  at least 18 years old to participate. Your participation in this research is voluntary. You may
+    	decline to answer any or all of the following questions. You may decline
+    	further participation, at any time, without adverse consequences. Your
+    	anonymity is assured; the researchers who have requested your
+    	participation will not receive any personal information about you. 
+    	Note however that we have recently been made aware that your public Amazon.com 
+    	profile can be accessed via your worker ID if you do not choose to opt out. 
+    	If you would like to opt out of this feature, you may follow instructions available 
+    	<a href="https://www.amazon.com/gp/help/customer/display.html?nodeId=16465241">here</a>.</p>
+    	
+    	 <button type="button" id="startbutton" onClick="this.blur(); experiment.test()">Start</button>
+    </div>
+
+<div class="slide" id="kidNumber"> 
+
+	<img src="researcher-check0.png" id="researchpic1" height="450" width="225">
+	
+	<h2 ID="firstWordSurvey" class="textDiv">First Word Survey</h2>
+	
+	<p ID="s1text2" class="textDiv">How many children do you have? 
+	<select id="numKids" class="ddl"> 
+		<option value=".5">None</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">Other</option> 
+	</select> 
+		<input type="text" onkeypress="return isNumberKey(event)" id="numKidsOther" name="numKidsOther" class="boxybox" />
+	<br />
+	<p ID="s1text3" class="textDiv">What is the <strong>mother's</strong> (or <strong>primary caretaker's</strong>) highest level of education?
+	 <p ID="s1radio3" class="textDiv">
+		<input type="radio" id="guarded" name="guarded" value="Elementary">Elementary school<br>
+		<input type="radio" id="guarded" name="guarded" value="Some high school">Some high school<br>	
+		<input type="radio" id="guarded" name="guarded" value="High school">High school<br>
+		<input type="radio" id="guarded" name="guarded" value="Some college">Some college<br>
+		<input type="radio" id="guarded" name="guarded" value="College">College<br>
+		<input type="radio" id="guarded" name="guarded" value="Some graduate school">Some graduate school<br>
+		<input type="radio" id="guarded" name="guarded" value="Graduate degree">Graduate degree<br />
+	</p>
+	<button type="button" ID="s1button" onClick="this.blur(); experiment.display_birth(); ">Continue</button>
+	</p> 
+</div> 
+ 
+<!--this is the second slide-->
+
+<div class="slide" id="birth"> 
+	<img src="researcher-check0.png" id="researchpic1" height="450" width="225">
+	<h2 ID="firstWordSurvey" class="textDiv">First Word Survey</h2> 
+	<p ID="s2text2" class="birthtext"><i>Please answer for <strong>one child at a time.</strong></i></p>
+	<p ID="s2text3" class="textDiv">What is this child's birth order?</p>
+	<select name="birthOr" id="birthOr"> 
+		<option value=".5">Please select a birth order</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">Other</option> 
+		</select>
+		<input type="text" onkeypress="return isNumberKey(event)" id="birthOrOther" name="birthOrOther" class="boxybox2" />
+		<br />
+		</p>
+		<button type="button" ID="s2button1" onClick="this.blur(); experiment.display_gender(); ">Continue </button>
+</div>
+
+<!--this is the third slide--> 
+
+<div class="slide" id="gender"> 
+<img src="researcher-check1.png" id="researchpic2" height="450" width="225">
+	<h2 ID="firstWordSurvey" class="textDiv">First Word Survey</h2>
+	<div id="Inst"> </div> 
+	</p>
+	<p ID="s3text2" class="textDiv">What is this child's gender? 
+	<p ID="s3radio1" class="textDiv">
+		<input type="radio" id="gend" name="gend" value="female">Female<br>
+		<input type="radio" id="gend" name="gend" value="male">Male<br>
+	</p>
+	<button type="button" ID="s3button1" onClick="this.blur(); experiment.display_wordInfo(); ">Continue</button>
+	<p class="textDiv" id="whatword1"><b>A reminder: We consider a "word" to be a consistent use 
+		of a particular set of sounds to indicate a consistent meaning. So, for example, 
+		if your baby babbled like "babababa" when she was excited, that would would not be a word. 
+		But if she used "moomoo" consistently to mean "cow," that would be a good word.</p></b>
+</div>	
+
+
+<!--this is the fourth slide-->
+
+<div class="slide" id="wordInfo"> 
+	
+	<h2 ID="firstWordSurvey" class="textDiv">First Word Survey</h2>
+	<div id="Inst1"> </div> 
+
+	<p ID="s4text2" class="textDiv"><strong>Excluding "Mama" and "Dada" (or their equivalents),</strong> what was this child's first word?
+		<input type="text" id="firstwd" name="firstwd" size="25" required><br />
+	<p ID="s4text6" class="textDiv"><strong>While we are interested in words other than "mama" and "dada", please check if either of these (or some version of them) was your child's first word:</strong>	
+	</p>
+	<p ID="s4radio4" class="textDiv"> 
+		<input type="radio" id="wordcheck" name="wordcheck" value="Mama">Mama/Mom/Mommy/Ma<br>
+		<input type="radio" id="wordcheck" name="wordcheck" value="Dada">Dada/Dad/Daddy/Da<br>
+		<input type="radio" id="wordcheck" name="wordcheck" value="Check">The above was really my child's first word<br>
+	</p>
+	<p ID="s4text3" class="textDiv">This word referred to a(n):
+	</p>
+    	<select name="wdtype" id="wdtype" class="ddl">
+    		<option value=".5">Please select from the options below</option>
+			<option value="Animal">Animal</option>
+			<option value="Games or Routines">Game or Routine</option>
+			<option value="Toy">Toy</option>
+			<option value="Person">Person</option>
+			<option value="Sound effect">Sound Effect</option>
+			<option value="Action Word">Action Word</option>
+			<option value="Vehicle">Vehicle</option>
+			<option value="Food and Drink">Food and Drink</option>
+			<option value="Place">Place</option>
+			<option value="Other object">Other object</option>
+			<option value="11">Other</option>
+		</select>
+		<input type="text" id="wdtypeOther" name="wdtypeOther" class="boxybox5" />
+	</p>
+	
+	<p ID="s4text4" class="textDiv">To whom was this word addressed (if anyone)? 
+		<input type="text" id="addressee" name="addresse" size="25" required><br />
+		</p>
+	
+	<p ID="s4text5" class="textDiv">Describe the scene. What was going on when this child said his/her first word?
+			<input type="text" id="wdmeaning" name="wdmeaning" size="25" required><br /></p>
+			
+	<button type="button" id="s4button2" onClick="this.blur(); experiment.display_ageInfo(); ">Continue</button>
+</div> 
+
+<!--this is the fifth slide-->
+
+<div class="slide" ID="ageInfo"> 
+
+	
+	<h2 ID="firstWordSurvey" class="textDiv">First Word Survey</h2> 
+	 <div id="Inst2"> </div>
+	 <img src="researcher-check2.png" id="researchpic3" height="450" width="225">
+	
+	<p ID="s5text2" class="textDiv">Approximately how old was this child <strong>then?</strong>
+		<select id="wdage" class="ddl">
+    		<option value=".5">Please select an age</option> 
+    		<option value="0 months">0 months</option>
+			<option value="1 month">1 month</option>
+			<option value="2 months">2 months</option>
+			<option value="3 months">3 months</option>
+			<option value="4 months">4 months</option>
+			<option value="5 months">5 months</option>
+			<option value="6 months">6 months</option>
+			<option value="7 months">7 months</option>
+			<option value="8 months">8 months</option>
+			<option value="9 months">9 months</option>
+			<option value="10 months">10 months</option>
+			<option value="11 months">11 months</option>
+			<option value="12 months">12 months</option>
+			<option value="13 months">13 months</option>
+			<option value="14 months">14 months</option>
+			<option value="15 months">15 months</option>
+			<option value="16 months">16 months</option>
+			<option value="17 months">17 months</option>
+			<option value="18 months">18 months</option>
+			<option value="19 months">19 months</option> 
+			<option value="20 months">20 months</option>
+			<option value="21 months">21 months</option>
+			<option value="22 months">22 months</option>
+			<option value="23 months">23 months</option>
+			<option value="24+ months">24+ months</option>
+			<option value="dontremember">Don't remember</option>
+			</select>
+			<br />
+			</p>
+    	<p ID="s5text3" class="textDiv">How old is your child <strong>now?</strong>
+       <select id="currage" class="ddl"> 
+       		<option value=".5">Please select an age</option> 
+       		<option value="0 years">0 years</option>
+			<option value="1 years">1 years</option>
+			<option value="2 years">2 years</option>
+			<option value="3 years">3 years</option>
+			<option value="4 years">4 years</option>
+			<option value="5 years">5 years</option>
+			<option value="6 years">6 years</option>
+			<option value="7 years">7 years</option>
+			<option value="8 years">8 years</option>
+			<option value="9 years">9 years</option>
+			<option value="10 years">10 years</option>
+			<option value="11 years">11 years</option>
+			<option value="12 years">12 years</option>
+			<option value="13 years">13 years</option>
+			<option value="14 years">14 years</option>
+			<option value="15 years">15 years</option>
+			<option value="16 years">16 years</option>
+			<option value="17 years">17 years</option>
+			<option value="18+ years">18+ years</option>
+       	</select> 
+       	</p>
+       	<br />
+		<button type="button" id="s5button3" onClick="this.blur(); experiment.display_languageInfo(); ">Continue</button>
+		
+
+</div> 
+
+<!--this is the sixth slide--> 
+
+<div class="slide" ID="languageInfo"> 
+	
+	<h2 ID="firstWordSurvey" class="textDiv">First Word Survey</h2> 
+	<img src="researcher-check2.png" id="researchpic3" height="450" width="225">
+	<div id="Inst4"> </div>
+	<p ID="s6text2" class="textDiv">What was the language of this child's <strong>first word?</strong>
+	<select name="wdlang" id="wdlang" class="ddl">
+		<option value=".5">Please select a language</option>
+		<option value="English">English</option>
+		<option value="Spanish">Spanish</option>
+		<option value="Arabic">Arabic</option>
+		<option value="Mandarin">Mandarin</option>
+		<option value="Russian">Russian</option>
+		<option value="French">French</option>
+		<option value="German">German</option>
+		<option value="Hindi">Hindi</option>
+		<option value="Portuguese">Portuguese</option>
+		<option value="Bengali">Bengali</option> 
+		<option value="Japanese">Japanese</option>
+		<option value="Punjabi">Punjabi</option>
+		<option value="Vietnamese">Vietnamese</option>
+		<option value="Italian">Italian</option> 
+		<option value="11">Other</option>
+		</select>
+		<input type="text" id="wdLangOther" name="wdLangOther" class="boxybox3" />
+		<br />
+	</p> 
+	
+	<p ID="s6text4" class="textDiv">What is the language most often spoken <strong>at home?</strong>
+	<select name="homelang" id="homelang" class="ddl"> 	
+		<option value=".5">Please select a language</option> 
+		<option value="English">English</option>
+		<option value="Spanish">Spanish</option>
+		<option value="Arabic">Arabic</option>
+		<option value="Mandarin">Mandarin</option>
+		<option value="Russian">Russian</option>
+		<option value="French">French</option>
+		<option value="German">German</option>
+		<option value="Hindi">Hindi</option>
+		<option value="Portuguese">Portuguese</option>
+		<option value="Bengali">Bengali</option> 
+		<option value="Japanese">Japanese</option>
+		<option value="Punjabi">Punjabi</option>
+		<option value="Vietnamese">Vietnamese</option>
+		<option value="Italian">Italian</option> 
+		<option value="11">Other</option>
+		</select>
+		<input  type="text" name="homeLangOther" id="homeLangOther" class="boxybox4" />
+		<br />
+		</p>
+		
+	<p ID="s6text5" class="textDiv">Is there anything else you'd like to tell us about your child's first word?
+	</p>
+	<textarea name="addinfo" id="addinfo" cols="50" rows="10"></textarea>
+	</p>
+	<button type="button" id="s6button4" onClick="this.blur(); experiment.display_continue(); ">Continue</button>
+	</div>
+	
+
+
+<!--this is the continue slide - this is where the numdone will be updated and we'll figure out if we need to continue or end the survey-->
+
+<div class="slide" ID="continue">
+<img src="researcher-check2.png" id="researchpic3" height="450" width="225"> 
+	
+	<h2 ID="firstWordSurvey" class="textDiv">First Word Survey</h2> 
+	<p><br />
+	<p ID="s7text2" class="textDiv">Please click the button below to continue the survey</p><br />
+	<button type="button" id="continuebutton" onClick="this.blur(); experiment.increment(); experiment.save(); ">Continue</button>
+	</p>
+</div>
+
+<!--this is the end slide-->	
+
+<div class="slide" id="end">
+<h2 ID="firstWordSurvey" class="textDiv">First Word Survey</h2>
+<img src="researcher-check2.png" id="researchpic3" height="450" width="225"> 
+<p ID="s8text2" class="textDiv">Please click 'Submit' to end the study.</p><br /> 
+<button type="button" id="debriefSubmit" onClick="this.blur(); experiment.submit();">Submit</button>
+</div>
+
+<!--this is the end end slide-->
+<div class="slide" id="finished">
+
+<p ID="s9text2" class="textDiv">You're finished - thanks for participating! Submitting to Mechanical Turk...</p>
+</div>
+    	
+	
+	<script src="FirstWord_RMS.js"></script>
+
+</body> 
+
+</html> 
+
